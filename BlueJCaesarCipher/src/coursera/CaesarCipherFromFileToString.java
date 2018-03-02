@@ -1,4 +1,4 @@
-package BlueJ;
+package coursera;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,8 +10,7 @@ public class CaesarCipherFromFileToString {
 	String stringFromFile;
 	{
 		try {
-			File file = new File(
-					"E:\\Eclipse\\workspace2016\\BlueJCaesarCipher\\src\\BlueJ\\File.txt");
+			File file = new File("src\\coursera\\File.txt");
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			try {
 				stringFromFile = br.readLine();

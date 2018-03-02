@@ -1,4 +1,4 @@
-package BlueJ;
+package coursera;
 
 public class CaesarCipher {
 	public String encrypt(String inString, int key) {

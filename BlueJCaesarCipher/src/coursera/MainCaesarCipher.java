@@ -23,9 +23,10 @@ and key2 is used to encrypt every other character, starting with the second char
 the call encryptTwoKeys(“First Legion”, 23, 17) should return “Czojq Ivdzle”. Note the ‘F’ is encrypted with key 23, 
 the first ‘i’ with 17, the ‘r’ with 23, and the ‘s’ with 17, etc. Be sure to test this method.
 */
-package BlueJ;
+package coursera;
 
 import java.io.IOException;
+
 import edu.duke.*;
 
 public class MainCaesarCipher {
