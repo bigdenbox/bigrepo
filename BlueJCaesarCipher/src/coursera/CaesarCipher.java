@@ -1,9 +1,12 @@
 package coursera;
 
+import edu.duke.FileResource;
+
 public class CaesarCipher {
 	public String encrypt(String inString, int key) {
+		System.out.println("encrypt");
 		System.out.println("Key = " + key);
-		System.out.println("inString = " + inString);
+//		System.out.println("inString = " + inString.toString());
 		String alphabetUpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		String alphabetLowCase = "abcdefghijklmnopqrstuvwxyz";
 		String shiftedAlphabetUpperCase = alphabetUpperCase.substring(key)
@@ -26,6 +29,7 @@ public class CaesarCipher {
 				}
 			}
 		}
+//		System.out.println(sb.toString());
 		return sb.toString();
 	}
 
@@ -82,6 +86,21 @@ public class CaesarCipher {
 			return true;
 		}
 		return false;
+	}
 
+	public String stringFromFile(String fileName) {
+		FileResource file = new FileResource(fileName);
+		return file.asString();
+	}
+	
+	public FileResource toEncryptFile(String inString){
+		FileResource file = new FileResource("src\\coursera\\encryptedFile.txt");
+		file.write(inString);
+		return file;
+	}
+	
+	public void getEncryptedFile (String fileName, int key){
+		
+		toEncryptFile(encrypt(stringFromFile(fileName), key));
 	}
 }
