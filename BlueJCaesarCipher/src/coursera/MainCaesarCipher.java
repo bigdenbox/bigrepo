@@ -45,9 +45,10 @@ public class MainCaesarCipher {
 		System.out.println("Answer  is Czojq Ivdzle");*/
 
 //		caesarCipher.getEncryptedFile("src\\coursera\\romeo.txt", 15);
-		System.out.println(caesarCipher.encrypt(caesarCipher.stringFromFile("src\\coursera\\romeo.txt"), 15));
 
-		
+		System.out.println(caesarCipher.encryptTwoKeys(caesarCipher.stringFromFile("src\\coursera\\test.txt"), 17, 4));
+
+
 
 	}
 

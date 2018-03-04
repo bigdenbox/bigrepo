@@ -167,10 +167,12 @@ public class WordLengths {
 	}
 
 	public int indexOfMax(int[] c) {
-		int result = c[0];
+		int maxCount = c[0];
+		int result = 0;
 		for (int i = 0; i < c.length; i++) {
-			if (result < c[i]) {
-				result = c[i];
+			if (maxCount < c[i]) {
+				maxCount = c[i];
+				result = i;
 			}
 		}
 		return result;

@@ -4,8 +4,8 @@ import edu.duke.FileResource;
 
 public class CaesarCipher {
 	public String encrypt(String inString, int key) {
-		System.out.println("encrypt");
-		System.out.println("Key = " + key);
+//		System.out.println("encrypt");
+//		System.out.println("Key = " + key);
 //		System.out.println("inString = " + inString.toString());
 		String alphabetUpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		String alphabetLowCase = "abcdefghijklmnopqrstuvwxyz";
@@ -34,8 +34,8 @@ public class CaesarCipher {
 	}
 
 	public String encryptTwoKeys(String inString, int key1, int key2) {
-		System.out.println("Key = " + key1);
-		System.out.println("Key = " + key1);
+		System.out.println("Key1 = " + key1);
+		System.out.println("Key2 = " + key2);
 		System.out.println("inString = " + inString);
 		String alphabetUpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		String alphabetLowCase = "abcdefghijklmnopqrstuvwxyz";
