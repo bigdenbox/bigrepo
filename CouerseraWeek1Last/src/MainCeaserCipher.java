@@ -45,7 +45,7 @@ public class MainCeaserCipher {
 //**		tcc.breakCaesarCipher(file.asString());
 		
 		TestCaesarCipherTwo tcctwo=new TestCaesarCipherTwo();
-//**      tcctwo.simpleTests();
+        tcctwo.simpleTests();
 		System.out.println(tcctwo.breakCaesarCipher(file.asString()));
 		
 	}
