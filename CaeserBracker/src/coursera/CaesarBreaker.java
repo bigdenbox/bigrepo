@@ -19,8 +19,6 @@ public class CaesarBreaker {
 				result[index]++;
 			}
 		}
-		for (int i = 0; i < result.length; i++) {
-		}
 		return result;
 	}
 
@@ -72,7 +70,7 @@ public class CaesarBreaker {
 		StringBuilder sb = new StringBuilder(message);
 		StringBuilder sbTemp = new StringBuilder();
 //		System.out.println(sb);
-		if (start <= sb.length()) {
+		if (start < sb.length()) {
 			for (int i = start; i < sb.length();) {
 				sbTemp.append(sb.charAt(i));
 				i += 2;

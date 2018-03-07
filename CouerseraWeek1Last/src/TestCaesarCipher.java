@@ -1,8 +1,8 @@
-import javax.swing.CellEditor;
 
 import edu.duke.FileResource;
 
 public class TestCaesarCipher {
+	private static int KEY = 18;
 
 	public int[] countLetters(String s) {
 		int[] result = new int[26];
@@ -31,7 +31,7 @@ public class TestCaesarCipher {
 	
 	public void simpleTests (){
 		FileResource file = new FileResource("src\\romeo.txt");
-		CaesarCipher cc = new CaesarCipher(18);
+		CaesarCipher cc = new CaesarCipher(KEY);
 		String encryptedText = cc.encrypt(file.asString());
 	//**	System.out.println(encryptedText);
 	//**	String decryptedText = cc.decrypt(encryptedText);
