@@ -1,3 +1,4 @@
+package coursera;
 import edu.duke.FileResource;
 
 public class TestCaesarCipherTwo {

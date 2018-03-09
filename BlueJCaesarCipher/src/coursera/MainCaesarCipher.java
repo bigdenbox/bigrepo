@@ -34,19 +34,20 @@ public class MainCaesarCipher {
 	public static void main(String[] args) throws IOException {
 		
 		CaesarCipher caesarCipher = new CaesarCipher ();
-/*		String inString = "At noon be in the conference room with your hat on for a surprise party. YELL LOUD!";
+/*		String inString = "Can you imagine life WITHOUT the internet AND computers in your pocket?";
+		System.out.println("inString= " + inString);
 		System.out.println("outString= " + caesarCipher.encrypt(inString, 15));
 		
 		System.out.println();
 		System.out.println("///////////////////////////////////////////////////////////");
 		System.out.println();
 
-		System.out.println("outString= " + caesarCipher.encryptTwoKeys("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!", 8, 21));
-		System.out.println("Answer  is Czojq Ivdzle");*/
+*/		System.out.println("outString= " + caesarCipher.encryptTwoKeys("Can you imagine life WITHOUT the internet AND computers in your pocket?", 21, 8));
+		System.out.println("Answer  is Czojq Ivdzle");
 
 //		caesarCipher.getEncryptedFile("src\\coursera\\romeo.txt", 15);
 
-		System.out.println(caesarCipher.encryptTwoKeys(caesarCipher.stringFromFile("src\\coursera\\test.txt"), 17, 4));
+//		System.out.println(caesarCipher.encryptTwoKeys(caesarCipher.stringFromFile("src\\coursera\\test.txt"), 17, 4));
 
 
 

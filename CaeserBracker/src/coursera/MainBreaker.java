@@ -15,15 +15,15 @@ public class MainBreaker {
 
 	//	System.out.println(breaker.halfOfString("Qbkm Zgis", 8));
 		
-		FileResource file =new FileResource ("src\\coursera\\mysteryTwoKeysPractice.txt");
-//		System.out.println(breaker.decryptTwoKeys(file.asString()));
+		FileResource file =new FileResource ("src\\coursera\\mysteryTwoKeysQuiz.txt");
+		System.out.println(breaker.decryptTwoKeys(file.asString()));
 
 		
 //**    System.out.println(breaker.decryptTwoKeys(file.asString()));
 		
-//**    System.out.println(breaker.decryptTwoKnownKeys("Top ncmy qkff vi vguv vbg ycpx", 2, 20));
+//**		System.out.println(breaker.decryptTwoKnownKeys("Hfs cpwewloj loks cd Hoto kyg Cyy.", 14, 24));
 		
-        System.out.println(breaker.decryptTwoKeys("Akag tjw Xibhr awoa aoee xakex znxag xwko"));
+//**		System.out.println(breaker.decryptTwoKeys("Aal uttx hm aal Qtct Fhljha pl Wbdl. Pvxvxlx!"));
 	}
 
 }

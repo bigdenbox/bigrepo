@@ -1,3 +1,4 @@
+package coursera;
 
 public class CaesarCipher {
 	private String alphabet;

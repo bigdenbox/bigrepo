@@ -1,3 +1,4 @@
+package coursera;
 /*Assignment 1: One Key
 In this assignment, you will put together the CaesarCipher class from the lesson and add a decrypt method to decrypt with the same key. In addition you will create a second class, TestCaesarCipher to test examples that use the CaesarCipher class, including writing a method that will automatically decrypt an encrypted file by determining the key and then decrypting with that key.
 
@@ -41,11 +42,11 @@ public class MainCeaserCipher {
 	public static void main(String[] args) {
 //**		TestCaesarCipher tcc = new TestCaesarCipher();
 //**		tcc.simpleTests();
-		FileResource file = new FileResource("src\\encryptedRomeo.txt");
+		FileResource file = new FileResource("src\\mysteryTwoKeysQuiz.txt");
 //**		tcc.breakCaesarCipher(file.asString());
 		
 		TestCaesarCipherTwo tcctwo=new TestCaesarCipherTwo();
-        tcctwo.simpleTests();
+ //       tcctwo.simpleTests();
 		System.out.println(tcctwo.breakCaesarCipher(file.asString()));
 		
 	}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Coursera_Week1_CaesarCipher</name>
+	<name>Week1</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>File.txt</name>
-			<type>1</type>
-			<locationURI>WORKSPACE_LOC/BlueJCaesarCipher/src/BlueJ/File.txt</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
