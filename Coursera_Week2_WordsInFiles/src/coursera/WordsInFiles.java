@@ -10,7 +10,7 @@ import edu.duke.DirectoryResource;
 import edu.duke.ImageResource;
 
 public class WordsInFiles {
-	private HashMap<String, ArrayList<String>> hashWords;
+	HashMap<String, ArrayList<String>> hashWords;
 
 	public WordsInFiles() {
 		this.hashWords = new HashMap<>();
@@ -102,11 +102,14 @@ public class WordsInFiles {
 	}
 
 	public void printWordsInNumFiles(int number) {
-		System.out.println("printWordsInNumFiles(int " + number + " )");
+		int wordsCount = 0;
+		System.out.println("printWordsInNumFiles(int " + number + ")");
 		for (String str : wordsInNumFiles(number)) {
-			System.out.println(str);
+	//		System.out.println(str + " " + wordsCount);
+			wordsCount++;
 		}
-		;
+		System.out.println("Number of words = " + wordsCount);
+		System.out.println(wordsInNumFiles(number).size());
 	}
 
 	/*

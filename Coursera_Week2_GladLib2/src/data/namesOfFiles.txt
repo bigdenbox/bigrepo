@@ -1,0 +1,9 @@
+adjective
+noun
+color
+country
+name
+animal
+timeframe
+verb
+fruit

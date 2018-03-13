@@ -19,12 +19,16 @@ public class MainWordsInFiles {
 		wif.addWordsFromFile(f3);
 		
 		File f4 = new File("src\\brief4.txt");
-		wif.addWordsFromFile(f4);*/
+		wif.addWordsFromFile(f4);
+*/
 		
 		wif.buildWordFileMap();
 		System.out.println("MaxNumber = " + wif.maxNumber());
-		wif.printWordsInNumFiles(2);
-		wif.printFilesIn("cats");
+//		wif.printWordsInNumFiles(5);
+		
+//		System.out.println(wif.hashWords.toString());
+		
+		wif.printFilesIn("red");
 		
 
 	}

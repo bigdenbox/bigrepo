@@ -99,7 +99,7 @@ public class CodonCount {
 			System.out.println("start = " + i);
 			buildCodonMap(i, input);
 			printHashDna();
-			printCodonCounts(0, hashDna.get(getMostCommonCodon()));
+	//		printCodonCounts(0, hashDna.get(getMostCommonCodon()));
 			System.out.println("getMostCommonCodon = " + getMostCommonCodon()
 					+ ". It has " + hashDna.get(getMostCommonCodon())
 					+ " occurrences");
