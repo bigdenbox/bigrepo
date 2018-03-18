@@ -124,7 +124,7 @@ public class GladLib {
 
 	public void makeStory() {
 		System.out.println("\n");
-		String story = fromTemplate("data/madtemplate3.txt");
+		String story = fromTemplate("data/madtemplate2.txt");
 		printOut(story, 100);
 		printTotalNumberOfWords();
 	}
@@ -147,10 +147,7 @@ public class GladLib {
 	public int totalWordsInMap() {
 		int result = 0;
 		for (String string : myMap.keySet()) {
-			for (String str : myMap.get(string)) {
-				result++;
-//				System.out.println(str + " " + result);
-			}
+			result += myMap.get(string).size();
 		}
 		return result;
 	}

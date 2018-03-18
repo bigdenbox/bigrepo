@@ -6,7 +6,7 @@ public class MainCharacterInPlay {
 		CharactersInPlay cip = new CharactersInPlay();
 		cip.findAllCharacters();
 	//	cip.print();
-		cip.charactersWithNumParts(10, 15);
+		cip.charactersWithNumParts(9, 16);
 		
 	}
 

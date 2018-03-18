@@ -23,12 +23,12 @@ public class MainWordsInFiles {
 */
 		
 		wif.buildWordFileMap();
-		System.out.println("MaxNumber = " + wif.maxNumber());
-//		wif.printWordsInNumFiles(5);
+//		System.out.println("MaxNumber = " + wif.maxNumber());
+//		wif.printWordsInNumFiles(4);
 		
 //		System.out.println(wif.hashWords.toString());
 		
-		wif.printFilesIn("red");
+		wif.printFilesIn("tree");
 		
 
 	}

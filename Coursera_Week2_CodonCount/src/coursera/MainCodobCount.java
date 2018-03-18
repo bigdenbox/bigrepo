@@ -17,7 +17,7 @@ public class MainCodobCount {
 		System.out.println("getMostCommonCodon = " + cc.getMostCommonCodon());
 		cc.printCodonCounts(11, 11);*/
 		
-		cc.tester(2, 2);
+		cc.tester(6, 8);
 
 	}
 
