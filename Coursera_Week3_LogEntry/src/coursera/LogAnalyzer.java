@@ -8,6 +8,7 @@ package coursera;
  */
 
 import java.util.*;
+
 import edu.duke.*;
 
 public class LogAnalyzer {
@@ -20,6 +21,13 @@ public class LogAnalyzer {
 
 	public void readFile(String filename) {
 		FileResource file = new FileResource(filename);
+		for (String line : file.lines()) {
+			records.add(WebLogParser.parseEntry(line));
+		}
+	}
+
+	public void readFile() {
+		FileResource file = new FileResource();
 		for (String line : file.lines()) {
 			records.add(WebLogParser.parseEntry(line));
 		}
@@ -49,17 +57,18 @@ public class LogAnalyzer {
 		}
 		return hasCopy.size();
 	}
-/*
- * return ArrayList<LogEntry> with unique IP
- */
+
+	/*
+	 * return ArrayList<LogEntry> with unique IP
+	 */
 	public ArrayList<LogEntry> getUniqueIPs(ArrayList<LogEntry> inputArr) {
 
 		ArrayList<LogEntry> uniqueIPEntry = new ArrayList<>();
 		ArrayList<String> uniqueIPString = new ArrayList<>();
-			for (LogEntry le : inputArr) {
-				if(!uniqueIPString.contains(le.getIpAddress())) {
-					uniqueIPString.add(le.getIpAddress());
-					uniqueIPEntry.add(le);
+		for (LogEntry le : inputArr) {
+			if (!uniqueIPString.contains(le.getIpAddress())) {
+				uniqueIPString.add(le.getIpAddress());
+				uniqueIPEntry.add(le);
 			}
 		}
 		return uniqueIPEntry;
@@ -80,7 +89,7 @@ public class LogAnalyzer {
 		for (LogEntry logEntry : records) {
 			if (num < logEntry.getStatusCode()) {
 				arrayLogsHigherThanNum.add(logEntry);
-				System.out.println(arrayLogsHigherThanNum);
+				System.out.println(logEntry);
 			}
 		}
 	}
@@ -114,7 +123,7 @@ public class LogAnalyzer {
 		}
 		return result;
 	}
-	
+
 	/*
 	 * In the LogAnalyzer class, write the method countUniqueIPsInRange that has two
 	 * integer parameters named low and high. This method returns the number of
@@ -130,10 +139,176 @@ public class LogAnalyzer {
 	public int countUniqueIPsInRange(int low, int high) {
 		ArrayList<LogEntry> arrLe = new ArrayList<>();
 		for (LogEntry logEntry : records) {
-			if((logEntry.getStatusCode() <= high) & (logEntry.getStatusCode() >= low)) {
+			if ((logEntry.getStatusCode() <= high) & (logEntry.getStatusCode() >= low)) {
 				arrLe.add(logEntry);
 			}
 		}
 		return getUniqueIPs(arrLe).size();
 	}
+
+	/*
+	 * In the LogAnalyzer class, write the method countVisitsPerIP, which has no
+	 * parameters. This method returns a HashMap<String, Integer> that maps an IP
+	 * address to the number of times that IP address appears in records, meaning
+	 * the number of times this IP address visited the website. Recall that records
+	 * stores LogEntrys from a file of web logs. For help, refer to the video in
+	 * this lesson on translating to code. Be sure to test this method on sample
+	 * files.
+	 */
+	public HashMap<String, Integer> countVisitsPerIP() {
+		HashMap<String, Integer> mapLogEntrys = new HashMap<>();
+		for (LogEntry logEntry : records) {
+			if (!mapLogEntrys.containsKey(logEntry.getIpAddress())) {
+				mapLogEntrys.put(logEntry.getIpAddress(), 1);
+			} else {
+				mapLogEntrys.put(logEntry.getIpAddress(), mapLogEntrys.get(logEntry.getIpAddress()) + 1);
+			}
+		}
+		return mapLogEntrys;
+	}
+
+	public HashMap<String, Integer> countVisitsPerIP(HashMap<String, Integer> inputMap) {
+		HashMap<String, Integer> mapLogEntrys = new HashMap<>();
+		for (String s : inputMap.keySet()) {
+			if (!mapLogEntrys.containsKey(s)) {
+				mapLogEntrys.put(s, 1);
+			} else {
+				mapLogEntrys.put(s, inputMap.get(s) + 1);
+			}
+		}
+		return mapLogEntrys;
+	}
+
+	/*
+	 * In the LogAnalyzer class, write the method mostNumberVisitsByIP, which has
+	 * one parameter, a HashMap<String, Integer> that maps an IP address to the
+	 * number of times that IP address appears in the web log file. This method
+	 * returns the maximum number of visits to this website by a single IP address.
+	 * For example, the call mostNumberVisitsByIP on a HashMap formed using the file
+	 * weblog3-short_log returns 3
+	 */
+	public int mostNumberVisitsByIP(HashMap<String, Integer> inputMap) {
+		int mostNumber = 0;
+		for (String s : inputMap.keySet()) {
+			if (mostNumber < inputMap.get(s)) {
+				mostNumber = inputMap.get(s);
+			}
+		}
+		return mostNumber;
+	}
+
+	/*
+	 * In the LogAnalyzer class, write the method iPsMostVisits, which has one
+	 * parameter, a HashMap<String, Integer> that maps an IP address to the number
+	 * of times that IP address appears in the web log file. This method returns an
+	 * ArrayList of Strings of IP addresses that all have the maximum number of
+	 * visits to this website. For example, the call iPsMostVisits on a HashMap
+	 * formed using the file weblog3-short_log returns the ArrayList with these two
+	 * IP addresses, 61.15.121.171 and 84.133.195.161. Both of them visited the site
+	 * three times, which is the maximum number of times any IP address visited the
+	 * site.
+	 */
+	public ArrayList<String> iPsMostVisits(HashMap<String, Integer> inputMap) {
+		ArrayList<String> arrS = new ArrayList<>();
+		int mostNumber = mostNumberVisitsByIP(inputMap);
+		for (String string : inputMap.keySet()) {
+			if (inputMap.get(string) == mostNumber) {
+				arrS.add(string);
+			}
+		}
+		return arrS;
+	}
+
+	/*
+	 * In the LogAnalyzer class, write the method iPsForDays, which has no
+	 * parameters. This method returns a HashMap<String, ArrayList<String>> that
+	 * uses records and maps days from web logs to an ArrayList of IP addresses that
+	 * occurred on that day (including repeated IP addresses). A day is in the
+	 * format “MMM DD” where MMM is the first three characters of the month name
+	 * with the first letter capital and the others in lowercase, and DD is the day
+	 * in two digits (examples are “Dec 05” and “Apr 22”). For example, for the file
+	 * weblog3-short_log, after building this HashMap, if you print it out, you will
+	 * see that Sep 14 maps to one IP address, Sep 21 maps to four IP addresses, and
+	 * Sep 30 maps to five IP addresses.
+	 */
+
+	public HashMap<String, ArrayList<String>> iPsForDays() {
+		HashMap<String, ArrayList<String>> resultMap = new HashMap<>();
+		for (LogEntry logEntry : records) {
+			String date = logEntry.getAccessTime().toString();
+			String day = date.substring(4, 10);
+			if (!resultMap.containsKey(day)) {
+				ArrayList<String> ipArr = new ArrayList<>();
+				ipArr.add(logEntry.getIpAddress());
+				resultMap.put(day, ipArr);
+			} else {
+				String key = day;
+				ArrayList<String> ipArr = resultMap.get(key);
+				ipArr.add(logEntry.getIpAddress());
+				resultMap.put(key, ipArr);
+			}
+		}
+		return resultMap;
+	}
+
+	/*
+	 * In the LogAnalyzer class, write the method dayWithMostIPVisits, which has one
+	 * parameter that is a HashMap<String, ArrayList<String>> that uses records and
+	 * maps days from web logs to an ArrayList of IP addresses that occurred on that
+	 * day. This method returns the day that has the most IP address visits. If
+	 * there is a tie, then return any such day. For example, if you use the file
+	 * weblog3-short_log, then this method should return the day most visited as Sep
+	 * 30.
+	 */
+
+	public String dayWithMostIPVisits(HashMap<String, ArrayList<String>> inputMap) {
+		String dayResult = null;
+		int mostN = 0;
+		for (String s : inputMap.keySet()) {
+			if (mostN < inputMap.get(s).size()) {
+				dayResult = s;
+				mostN = inputMap.get(s).size();
+			}
+		}
+		return dayResult;
+	}
+
+	/*
+	 * In the LogAnalyzer class, write the method iPsWithMostVisitsOnDay, which has
+	 * two parameters—the first one is a HashMap<String, ArrayList<String>> that
+	 * uses records and maps days from web logs to an ArrayList of IP addresses that
+	 * occurred on that day, and the second parameter is a String representing a day
+	 * in the format “MMM DD” described above. This method returns an
+	 * ArrayList<String> of IP addresses that had the most accesses on the given
+	 * day. For example, if you use the file weblog3-short_log, and the parameter
+	 * for the day is “Sep 30”, then there are two IP addresses in the ArrayList
+	 * returned: 61.15.121.171 and 177.4.40.87. Hint: This method should call
+	 * another method you have written.
+	 */
+
+	public ArrayList<String> iPsWithMostVisitsOnDay(HashMap<String, ArrayList<String>> inputMap, String inputDay) {
+		ArrayList<String> resultArr = new ArrayList<>();
+		HashMap<String, Integer> map = new HashMap<>();
+		int mostN = 0;
+		for (String s : inputMap.get(inputDay)) {
+			if (!map.containsKey(s)) {
+				map.put(s, 1);
+			} else {
+				map.put(s, map.get(s) + 1);
+			}
+		}
+		for (String s : map.keySet()) {
+			if (mostN < map.get(s)) {
+				mostN = map.get(s);
+				resultArr.clear();
+				resultArr.add(s);
+			} else {
+				if (mostN == map.get(s)) {
+					resultArr.add(s);
+				}
+			}
+		}
+		return resultArr;
+	}
+
 }
