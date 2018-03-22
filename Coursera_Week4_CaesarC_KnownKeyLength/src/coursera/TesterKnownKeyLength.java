@@ -103,6 +103,11 @@ public class TesterKnownKeyLength {
     	System.out.print("key[] = ");
     	printArrInt(vb.tryKeyLength(encrypted, klength, mostCommon));
     }
+    public void testbreakVigenere(){
+    	VigenereBreaker vb = new VigenereBreaker();
+    	System.out.println(vb);
+    	
+    }
 
 
 }

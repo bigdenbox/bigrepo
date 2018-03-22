@@ -27,6 +27,7 @@ public class VigenereBreaker {
 	}
 
 	public void breakVigenere() {
+		System.out.println("Test");
 		
 	}
 
