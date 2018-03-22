@@ -28,11 +28,9 @@ public class VigenereBreaker {
 		return key;
 	}
 
-	public void breakVigenere() {
+	public void breakVigenere(int klength, char mostCommon) {
 		FileResource file = new FileResource();
 		String encrypted = file.asString();
-		int klength = 5;
-		char mostCommon = 'e';
 		int[] keyArr = tryKeyLength(encrypted, klength, mostCommon);
 		VigenereCipher vc = new VigenereCipher(keyArr);
 		System.out.println(vc.decrypt(encrypted));
