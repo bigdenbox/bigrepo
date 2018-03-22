@@ -14,7 +14,7 @@ public class MainCaesarKnownKeyLength {
 	//	test.testencryptVigenereCipherEncrypt(arr);
 	//	test.testVigenereBreakerSliceString("abcdefghijklm", 0, 3);
 		test.testVigenereBreakertryKeyLength(5, 'e');
-		
+		System.out.println("");
 	}
 
 }
