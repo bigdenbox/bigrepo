@@ -104,8 +104,9 @@ public class TesterKnownKeyLength {
     	printArrInt(vb.tryKeyLength(encrypted, klength, mostCommon));
     }
     public void testbreakVigenere(){
+    	System.out.println("testbreakVigenere()");
     	VigenereBreaker vb = new VigenereBreaker();
-    	System.out.println(vb);
+    	vb.breakVigenere();
     	
     }
 

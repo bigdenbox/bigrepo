@@ -1,13 +1,15 @@
 package coursera;
 
+import edu.duke.FileResource;
+
 public class VigenereBreaker {
 	/*
 	 * Write the public method sliceString , which has three parameters—a String
 	 * message , representing the encrypted message, an integer whichSlice ,
-	 * indicating the index the slice should start from, and an integer totalSlices
-	 * , indicating the length of the key. This method returns a String consisting
-	 * of every totalSlices th character from message , starting at the whichSlice
-	 * th character.
+	 * indicating the index the slice should start from, and an integer
+	 * totalSlices , indicating the length of the key. This method returns a
+	 * String consisting of every totalSlices th character from message ,
+	 * starting at the whichSlice th character.
 	 */
 	public String sliceString(String message, int whichSlice, int totalSlices) {
 		StringBuilder sb = new StringBuilder();
@@ -27,8 +29,14 @@ public class VigenereBreaker {
 	}
 
 	public void breakVigenere() {
-		System.out.println("Test");
-		
+		FileResource file = new FileResource();
+		String encrypted = file.asString();
+		int klength = 5;
+		char mostCommon = 'e';
+		int[] keyArr = tryKeyLength(encrypted, klength, mostCommon);
+		VigenereCipher vc = new VigenereCipher(keyArr);
+		System.out.println(vc.decrypt(encrypted));
+
 	}
 
 }
