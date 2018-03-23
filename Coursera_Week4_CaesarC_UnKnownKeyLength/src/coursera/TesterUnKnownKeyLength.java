@@ -6,7 +6,7 @@ import javax.swing.SingleSelectionModel;
 
 import edu.duke.*;
 
-public class TesterKnownKeyLength {
+public class TesterUnKnownKeyLength {
 
 	public String initFile() {
 		FileResource file = new FileResource();
@@ -130,7 +130,21 @@ public class TesterKnownKeyLength {
 		System.out.println(encrypted);
 		VigenereBreaker vb = new VigenereBreaker();
 		System.out.println("\nDECRYPTED MESSAGE:");
-		System.out.println(vb.breakForLanguage(encrypted, vb.readDictionary(dictionaryFile), largestKeyLength, mostCommon));
+		System.out.println(vb.breakForLanguage(encrypted, vb.readDictionary(dictionaryFile), largestKeyLength, mostCommon).substring(0, 1000));
+	//	vb.breakForLanguage(encrypted, vb.readDictionary(dictionaryFile), largestKeyLength, mostCommon);
+	}
+	
+	public void testkey(){
+		System.out.println("Choose encrypted file, please");
+		FileResource encryptedFile = new FileResource();
+		System.out.println("Choose dictionary, please");
+		FileResource dictionaryFile = new FileResource();
+		String encrypted = encryptedFile.asString();
+		VigenereBreaker vb = new VigenereBreaker();
+//		vb.tryKeyLength(encrypted, 38, 'e');
+		String decrypted = vb.breakVigenere(encrypted, 38, 'e');
+		HashSet<String> dictionary = vb.readDictionary(dictionaryFile);
+		System.out.println("valid words = " + vb.countWords(decrypted, dictionary));
 	}
 
 }

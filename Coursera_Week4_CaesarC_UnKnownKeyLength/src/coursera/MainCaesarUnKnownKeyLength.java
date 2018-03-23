@@ -1,10 +1,10 @@
 package coursera;
 
-public class MainCaesarKnownKeyLength {
+public class MainCaesarUnKnownKeyLength {
 
 	public static void main(String[] args) {
 
-		TesterKnownKeyLength test = new TesterKnownKeyLength();
+		TesterUnKnownKeyLength test = new TesterUnKnownKeyLength();
 	//	test.testencrypt(5);
 	//	test.testdecryptKnowKey(17);
 	//	test.testdecryptDontKnowKey();
@@ -16,6 +16,7 @@ public class MainCaesarKnownKeyLength {
 	//	test.testVigenereBreakertryKeyLength(4, 'e');
 	//	test.testbreakVigenere(5, 'e');
 		test.testbreakForLanguage(100, 'e');
+	//	test.testkey();
 	}
 
 }

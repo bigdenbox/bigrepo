@@ -25,12 +25,15 @@ public class VigenereBreaker {
 	public int[] tryKeyLength(String encrypted, int klength, char mostCommon) {
 		int[] key = new int[klength];
 		CaesarCracker cc = new CaesarCracker(mostCommon);
+		System.out.println("-----------------------------------");
 		for (int i = 0; i < klength; i++) {
 			key[i] = cc.getKey(sliceString(encrypted, i, klength));
+			System.out.println("key[" + i + "] = " + key[i]);
 		}
+
 		return key;
 	}
-	
+
 	public void printArrInt(int[] arrInt) {
 		System.out.print("{");
 		for (int i = 0; i < arrInt.length; i++) {
@@ -84,14 +87,18 @@ public class VigenereBreaker {
 	 */
 
 	public int countWords(String message, HashSet<String> dictionary) {
-		// ArrayList<String> arString = new ArrayList<String>();
+		ArrayList<String> arString = new ArrayList<String>();
 		int result = 0;
 		for (String string : message.split("\\W")) {
-			// arString.add(string);
+
 			if (dictionary.contains(string)) {
-				result++;
+				if (!arString.contains(string)) {
+					arString.add(string);
+					result++;
+				}
 			}
 		}
+		System.out.println("arString.size() = " + arString.size());
 		return result;
 	}
 
@@ -126,9 +133,9 @@ public class VigenereBreaker {
 			overlap[i] = countWords(decryptedArr.get(i), dictionary);
 		}
 		System.out.println("##############################");
-		key = (maxInt(overlap) + 1);
+		key = maxInt(overlap) + 1;
 		System.out.println("klength = " + key);
-		printArrInt(tryKeyLength(encrypted, key , mostCommon));
+		printArrInt(tryKeyLength(encrypted, key, mostCommon));
 		return breakVigenere(encrypted, maxInt(overlap) + 1, mostCommon);
 	}
 
@@ -141,6 +148,7 @@ public class VigenereBreaker {
 				index = i;
 			}
 		}
+		System.out.println("valid words = " + arr[index]);
 		return index;
 	}
 }
