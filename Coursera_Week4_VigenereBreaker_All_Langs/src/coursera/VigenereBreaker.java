@@ -9,8 +9,11 @@ import java.util.HashSet;
 import edu.duke.DirectoryResource;
 import edu.duke.FileResource;
 
-public class VigenereBreaker {
-	/*
+public class VigenereBreaker { 
+/*	private String encryptedLanguage;
+	private int encryptedKlength;
+	private int[] encryptedKeys;
+*/	/*
 	 * Write the public method sliceString , which has three parameters—a String
 	 * message , representing the encrypted message, an integer whichSlice ,
 	 * indicating the index the slice should start from, and an integer totalSlices
@@ -82,15 +85,18 @@ public class VigenereBreaker {
 		FileResource fr = new FileResource();
 		String encrypted = fr.asString();
 		String decrypted = breakForAllLanguages(encrypted, dictionaries);
-		System.out.println("/nDECRYPTED TEXT:");
+		System.out.println("\nDECRYPTED TEXT:");
+		if(decrypted.length() > 1000) {
 		System.out.println(decrypted.substring(0, 1000));
+		}else 
+			System.out.println(decrypted);
 		return decrypted; 
 	}
 
 	public HashMap<String, HashSet<String>> buildDictionariesFileMap() throws FileNotFoundException {
 		HashMap<String, HashSet<String>> dictionaries = new HashMap<>();
 		dictionaries.clear();
-		System.out.println("Please open files with dicionaries:");
+		System.out.println("Please open files with dictionaries:");
 		DirectoryResource dr = new DirectoryResource();
 		for (File file : dr.selectedFiles()) {
 			String fileName = file.getName();
@@ -167,7 +173,7 @@ public class VigenereBreaker {
 		for (int i = 0; i < overlap.length; i++) {
 			overlap[i] = countWords(decryptedArr.get(i), dictionary);
 		}
-//		System.out.println("##############################");
+		System.out.println("---------------------------------");
 		key = maxInt(overlap) + 1;
 		System.out.println("klength = " + key);
 		printArrInt(tryKeyLength(encrypted, key, mostCommon));
