@@ -19,9 +19,10 @@ public class Date {
 	}
 
 	public DayOfWeek getDayOfWeek() {
-		int daysAfter1_01_1990 = daysBetween(new Date(01, 01, 1990));
+		int daysAfter1_01_1900 = daysBetween(new Date(01, 01, 1900));
+//		System.out.println("daysAfter1_01_1900 = " + daysAfter1_01_1900);
 		for (DayOfWeek dw : DayOfWeek.values()) {
-			if (dw.ordinal() == (Math.abs(daysAfter1_01_1990) % 7)) {
+			if (dw.ordinal() == (Math.abs(daysAfter1_01_1900) % 7)) {
 				return dw;
 			}
 		}
