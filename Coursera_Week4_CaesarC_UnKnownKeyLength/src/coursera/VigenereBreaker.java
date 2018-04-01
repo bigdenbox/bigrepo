@@ -91,11 +91,11 @@ public class VigenereBreaker {
 		int result = 0;
 		for (String string : message.split("\\W")) {
 
-			if (dictionary.contains(string)) {
-				if (!arString.contains(string)) {
+			if (dictionary.contains(string.toLowerCase())) {
+			//	if (!arString.contains(string)) {
 					arString.add(string);
 					result++;
-				}
+			//	}
 			}
 		}
 		System.out.println("arString.size() = " + arString.size());

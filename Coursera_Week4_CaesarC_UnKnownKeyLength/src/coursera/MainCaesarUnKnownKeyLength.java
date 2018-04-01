@@ -15,8 +15,8 @@ public class MainCaesarUnKnownKeyLength {
 	//	test.testVigenereBreakerSliceString("abcdefghijklm", 0, 3);
 	//	test.testVigenereBreakertryKeyLength(4, 'e');
 	//	test.testbreakVigenere(5, 'e');
-		test.testbreakForLanguage(100, 'e');
-	//	test.testkey();
+	//	test.testbreakForLanguage(100, 'e');
+		test.testkey();
 	}
 
 }
